@@ -1,0 +1,39 @@
+---
+title: Our Team
+layout: default
+stylesheet: team
+permalink: /team/
+---
+
+<div class="hp_body">
+    <div class="row about">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h1>Our People Can Do It</h1>
+            <span>And we will make it look easy!</span>
+            <hr>
+            <span>Supply Chain | E-Commerce | Payments</span>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row bioContainer">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            {% assign sorted = site.team | sort: 'random' %}
+            {% for bio in sorted %}
+                <div class="row bio">
+                    <div class="col-sm-4">
+                        <img src="{{ bio.image }}">
+                    </div>
+                    <div class="col-sm-8">
+                        <h1>{{ bio.name }}</h1>
+                        <span class="role">{{ bio.role }}</span>
+                        <span>{{ bio.bio }}</span>
+                    </div>
+                </div>
+            {% endfor %}            
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
