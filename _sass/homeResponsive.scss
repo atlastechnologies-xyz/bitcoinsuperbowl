@@ -9,6 +9,16 @@
 
 /* Mobile */
 @media screen and (max-width: 600px) {
+    .hp_body a.easyLink {
+        font-size: 1.6rem;
+    }
+    .hp_body .col-sm-6 {
+        padding: 0;
+        width: calc(100vw - 4rem) !important;
+        position: absolute;
+        left: 3.5rem !important;
+        display: block;
+    }
 }
 
 @media screen and (max-width: 330px) {
