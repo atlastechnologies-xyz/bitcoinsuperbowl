@@ -40,3 +40,47 @@ strong {
     margin: auto;
     margin-top: 1rem;
 }
+
+div#payment {
+    z-index: 99 !important;
+    background: white;
+    position: absolute;
+    width: 20rem;
+    left: calc(50% - 10rem);
+    margin: auto;
+    top: calc(50% - 20rem);
+    padding: 4rem;
+    display: none;
+}
+#payment span {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0.35rem;
+    color: black;
+}
+input#paymentInfo {
+    display: block;
+    margin-top: 1rem;
+    margin-left: -2rem;
+}
+.shown {
+    display: block !important;
+}
+.payment h1 {
+    color: black !important;
+    display: block;
+    font-size: 1.45rem;
+    margin-top: 0;
+    text-transform: uppercase;
+    margin-left: -2rem;
+    width: 16.75rem;
+}
+.payment a {
+    color: blue;
+    padding: 0.1rem;
+    border-radius: 0.25rem;
+    border: #0000ff54 1px solid;
+    margin-top: 1rem;
+    display: block;
+}

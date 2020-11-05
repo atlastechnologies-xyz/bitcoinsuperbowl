@@ -10,12 +10,54 @@ stylesheet: homepage
     <div class="row about">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
-            <h1>Bitcoin for the <strong>SuperBowl</strong></h1>
-            <span>A few dollars from a lot of people could make all the difference!</span>
-            <span><a class="easyLink" target="_blank"
-                    href="btc:3J5wVeVRK96g3KyEZ2dpt4KGN4nEBXLdtD?amount=0.00081967">Donate $10 to
-                    3J5wVeVRK96g3KyEZ2dpt4KGN4nEBXLdtD</a></span>
+            <h1>Mass Adoption through <strong>Mass Media</strong></h1>
+            <span>We are crowdsourcing a Bitcoin Superbowl Commercial. It's about time.</span>
+            <span><a class="easyLink" onclick="showPaymentInfo()">Contribute</a></span>
         </div>
         <div class="col-sm-3"></div>
     </div>
 </div>
+
+<div id="payment" class="payment">
+    <span onclick="closePaymentInfo()">✕</span>
+    <h1>All contributions are refundable</h1>
+    <div id="qrcode"></div>
+    <input id="paymentInfo" class="paymentInfo" placeholder="loading" onclick="copyAddress()" disabled>
+    <a onclick="copyAddress()"><i class="fa fa-copy"></i> Copy Address</a>
+</div>
+
+<script>
+    function showPaymentInfo() {
+        var address = "3J5wVeVRK96g3KyEZ2dpt4KGN4nEBXLdtD"
+        var cid = "btc:" + address + "?amount=0.00081967"
+        document.getElementById('payment').className += " shown"
+        if (document.getElementsByTagName('canvas').length < 1) {
+            var qrcode = new QRCode("qrcode", {
+                text: cid,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+        document.getElementById('paymentInfo').value = address;
+    }
+    function closePaymentInfo() {
+        document.getElementById('payment').className = document.getElementById('payment').className.replace('shown', '')
+    }
+    function copyAddress() {
+        var copyText = document.getElementById("paymentInfo");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+
+    }
+</script>
