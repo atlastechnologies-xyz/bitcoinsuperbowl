@@ -24,12 +24,13 @@ stylesheet: homepage
     <div id="qrcode"></div>
     <input id="paymentInfo" class="paymentInfo" placeholder="loading" onclick="copyAddress()" disabled>
     <a onclick="copyAddress()"><i class="fa fa-copy"></i> Copy Address</a>
+    <a id="payWithWallet" rel="payment" href="#">Pay With Wallet</a>
 </div>
 
 <script>
     function showPaymentInfo() {
         var address = "3J5wVeVRK96g3KyEZ2dpt4KGN4nEBXLdtD"
-        var cid = "btc:" + address + "?amount=0.00081967"
+        var cid = "bitcoin:" + address + "?amount=0.00081967"
         document.getElementById('payment').className += " shown"
         if (document.getElementsByTagName('canvas').length < 1) {
             var qrcode = new QRCode("qrcode", {
@@ -41,6 +42,7 @@ stylesheet: homepage
                 correctLevel: QRCode.CorrectLevel.H
             });
         }
+        document.getElementById('payWithWallet').href = cid;
         document.getElementById('paymentInfo').value = address;
     }
     function closePaymentInfo() {
